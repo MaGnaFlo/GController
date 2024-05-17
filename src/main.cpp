@@ -4,14 +4,17 @@
 
 int main()
 {
-    constexpr unsigned short vendorID {0x0079};
-	constexpr unsigned short productID {0x0006};
-    GController gctrl(vendorID, productID);
-    GController::enumerate_devices();
-    for (;;) {
+    constexpr unsigned short vendor_id {0x0079};
+    constexpr unsigned short product_id {0x0006};
+    GController gctrl(vendor_id, product_id);
+    // GController::enumerate_devices();
+    for (;;)
+    {
         std::vector<unsigned int> data;
-        if (gctrl.read(data)) {
-            for (const auto& val : data) {
+        if (gctrl.read(data))
+        {
+            for (const auto &val : data)
+            {
                 std::cout << val << " ";
             }
             std::cout << std::endl;

@@ -7,6 +7,6 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 file(GLOB_RECURSE SRC_FILES src/*.cpp)
 add_executable(gctrl ${SRC_FILES})
-target_include_directories(gctrl PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include /opt/homebrew/opt/hidapi/include/hidapi)
-target_link_directories(gctrl PUBLIC /opt/homebrew/opt/hidapi/lib)
+target_include_directories(gctrl PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/include ${CMAKE_CURRENT_SOURCE_DIR}/hidapi/include)
+target_link_directories(gctrl PUBLIC ${CMAKE_CURRENT_SOURCE_DIR}/hidapi/lib)
 target_link_libraries(gctrl PRIVATE hidapi)
