@@ -32,12 +32,12 @@ public:
      * @brief Prints the device info.
      * @param info The device info.
      */
-    static void print_device_info(hid_device_info *info) const;
+    static void print_device_info(hid_device_info *info);
 
     /**
      * @brief Prints all devices. Useful to identify the controller.
      */
-    static void enumerate_devices() const;
+    static void enumerate_devices();
 
     /**
      * @brief Reads the device input buffer and stores the data as a vector of unsigned integers.

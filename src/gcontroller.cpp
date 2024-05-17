@@ -11,7 +11,7 @@ GController::~GController()
     hid_exit();
 }
 
-void GController::print_device_info(hid_device_info *info) const
+void GController::print_device_info(hid_device_info *info)
 {
     // maybe just exclude USB interface -1
     if (info->interface_number)
@@ -30,7 +30,7 @@ void GController::print_device_info(hid_device_info *info) const
                << "\n##############################################\n";
 }
 
-void GController::enumerate_devices() const
+void GController::enumerate_devices()
 {
     hid_device_info *device = hid_enumerate(0, 0);
     hid_device_info *device_it = device;
@@ -45,7 +45,7 @@ void GController::enumerate_devices() const
 bool GController::read(std::vector<unsigned int> &data) const
 {
     unsigned char buffer[_buffer_size];
-    hid_device *handle = hid_open(_vendorID, _productID, nullptr);
+    hid_device *handle = hid_open(_vendor_id, _product_id, nullptr);
     if (!handle)
     {
         std::cerr << "Unable to open device\n";
